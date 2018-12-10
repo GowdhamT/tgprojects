@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                 
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="css/style.css">
+            <script src="js/signupvalidation.js"></script>
+    </head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>GUVI Students Registration</h1>
+  <p>Please fill up the below detials to get started!</p> 
+</div>
+
+<div class="container">
+  <form id= "userForm">
+      <div class="row">
+
+        <div class="col-sm-4">
+          <label><b>Name</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="Enter Name" name="uname" id="uname"  required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-4">
+          <label><b>Email</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="Enter Email" name="email" id="email" onkeyup="validateEmail(this);" required>
+        </div>
+        <div class="col-sm-4">
+           <span id='e-message'></span>
+        </div>
+      </div>
+<div class="row">
+        <div class="col-sm-4">
+          <label><b>Gender</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="Enter Gender" name="gender" id="gender" required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-4">
+          <labelclass="control-label" for="date"><b>DOB</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="YYYY-MM-DD" name="dob" id="dob"  required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-4">
+          <label><b>College Name</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="Enter Colg" name="colg" id="colg"  required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-4">
+          <label><b>Degree</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="Enter Degree" name="degree" id="degree"  required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-4">
+          <label><b>Department</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="text" placeholder="Enter Dept" name="dept" id="dept"  required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-4">
+          <label><b>Password</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="password" placeholder="Enter pwd" name="password" id="password"  required>
+        </div>
+        <div class="col-sm-4">
+           <span id=''></span>
+        </div>
+</div>
+<div class="row">
+         <div class="col-sm-4">
+          <label><b>Repeat Password</b></label>
+        </div>
+        <div class="col-sm-4">
+           <input type="password" placeholder="Enter pwd" name="confirm_password" id="confirm_password" onkeyup="check(this);" required>
+        </div>
+        <div class="col-sm-4">
+           <span id='message'></span>
+         </div>
+  </div>
+<div class="row">
+      <div class="col-sm-4">
+        <button id="fs" type="button" class="signupbtn">Sign Up</button>
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <button type="button" onclick="location.href='./index.html';" class="cancelbtn">Back</button>
+      </div>
+
+
+      </div>
+    
+  </form>
+</div>
+
+</body>
+</html>
+
