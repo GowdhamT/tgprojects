@@ -1,8 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 
 $servername   = "localhost";
 $database = "database";
-$username = "gauti";
+$username = "id8190638_gauti";
 $password = "gauti123@";
 
 // Create connection
@@ -12,24 +16,43 @@ if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 }
   
-mysqli_select_db($conn,"mysql");
+mysqli_select_db($conn,"id8190638_mysql");
+//$stmt=$conn->prepare("INSERT INTO USER_DETAILS VALUES (?,?,?,?,?,?,?)");
 
-$stmt=$conn->prepare("INSERT INTO USER_DETAILS VALUES (?,?,?,?,?,?,?)");
-$stmt->bind_param("sssssss",$name,$mailid,$gender,$dob,$colg,$degree,$dept);
-
-$name=$_POST['uname'];
+    $name=$_POST['uname'];
 $mailid=$_POST['email'];
 $gender=$_POST['gender'];
 $dob=$_POST['dob'];
 $colg=$_POST['colg'];
 $degree=$_POST['degree'];
 $dept=$_POST['dept'];
+if ( $stmt=$conn->prepare("INSERT INTO user_details VALUES (?,?,?,?,?,?,?)") ) {
+    $stmt->bind_param("sssssss",$name,$mailid,$gender,$dob,$colg,$degree,$dept);
 
+
+    
+}
+else {
+    print_r("Errormessage: %s\n", $conn->error);
+}
+
+if($stmt->execute())
+{
+    $stmt->close();
+}
+else
+{
+    echo $conn->error;
+}
+
+
+
+//$stmt->bind_param("sssssss",$name,$mailid,$gender,$dob,$colg,$degree,$dept);
 $user_data=array();
 
 
 
-$stmt->execute();
+
 
 $user_data=array(
  'name'=>$name,
@@ -63,20 +86,20 @@ file_put_contents($file_name, json_encode($user_data));
 
 }
 
+session_start();
+$_SESSION['user_id']=$mailid;
 
 
 
-$stmt1=$conn->prepare("INSERT INTO USERCREDENTIALS VALUES (?,?)");
+$stmt1=$conn->prepare("INSERT INTO usercredentials VALUES (?,?)");
 $stmt1->bind_param("ss",$mailid,$pwd);
 $pwd=$_POST['password'];
 
 
 $stmt1->execute();
-
+$stmt1->close();
 //echo "user credentials stored";
 
-session_start();
-$_SESSION['user_id']=$mailid;
 
 
 

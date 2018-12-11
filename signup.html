@@ -19,7 +19,7 @@
       <div class="row">
 
         <div class="col-sm-4">
-          <label><b>Name</b></label>
+          <label><b>Name</b></label><span class="span-align">*</span>
         </div>
         <div class="col-sm-4">
            <input type="text" placeholder="Enter Name" name="uname" id="uname"  required>
@@ -30,7 +30,7 @@
 </div>
 <div class="row">
         <div class="col-sm-4">
-          <label><b>Email</b></label>
+          <label><b>Email</b></label><span class="span-align">*</span>
         </div>
         <div class="col-sm-4">
            <input type="text" placeholder="Enter Email" name="email" id="email" onkeyup="validateEmail(this);" required>
@@ -44,7 +44,12 @@
           <label><b>Gender</b></label>
         </div>
         <div class="col-sm-4">
-           <input type="text" placeholder="Enter Gender" name="gender" id="gender" required>
+           <select id="gender" name="gender">
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+  <option value="Not Specified">Do no want to specify</option>
+  
+       </select>
         </div>
         <div class="col-sm-4">
            <span id=''></span>
@@ -96,7 +101,7 @@
 </div>
 <div class="row">
         <div class="col-sm-4">
-          <label><b>Password</b></label>
+          <label><b>Password</b></label><span class="span-align">*</span>
         </div>
         <div class="col-sm-4">
            <input type="password" placeholder="Enter pwd" name="password" id="password"  required>
@@ -107,7 +112,7 @@
 </div>
 <div class="row">
          <div class="col-sm-4">
-          <label><b>Repeat Password</b></label>
+          <label><b>Repeat Password</b></label><span class="span-align">*</span>
         </div>
         <div class="col-sm-4">
            <input type="password" placeholder="Enter pwd" name="confirm_password" id="confirm_password" onkeyup="check(this);" required>

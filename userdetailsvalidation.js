@@ -1,6 +1,23 @@
 $(document).ready(function(){
 console.log("inside ready");
 
+
+$('#logOut').click(function()
+{
+$.ajax(
+{
+  type:"GET",
+  url: 'signout.php',
+  success: function(output)
+  {
+      window.location = "index.html";
+   }
+  
+});
+});
+
+
+
 $.ajax(
 {
   type:"GET",
@@ -9,7 +26,7 @@ $.ajax(
   {
     
     console.log(output);
-    var temp=JSON.parse(output);
+    var temp=JSON.parse(output.toString());
     console.log(temp);
     document.getElementById("user_name").innerHTML = temp.name;
     document.getElementById("email").value = temp.mailid;
